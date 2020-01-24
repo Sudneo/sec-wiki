@@ -1,0 +1,60 @@
+site_name: Security Wiki
+site_description: 'Personal Wiki for everything concerning security'
+site_author: 'Sudneo'
+
+# Repository
+repo_name: 'sudneo/sec-wiki'
+repo_url: 'https://github.com/sudneo/sec-wiki'
+
+# Copyright
+copyright: 'Copyright &copy; 2018 - 2020 Sudneo'
+
+
+theme:
+  name: material
+  language: 'en'
+  palette:
+      primary: 'Blue Grey'
+      accent: 'Teal'
+  font:
+      text: 'Open Sans'
+      code: 'Hack'
+  logo:
+    icon: 'label'
+  search:
+    tokenizer: '[\s\-\.\_]+'
+  feature:
+    tabs: true
+
+# Customization
+extra:
+  manifest: 'manifest.webmanifest'
+  social:
+    - type: 'github'
+      link: 'https://github.com/sudneo'
+
+# https://facelessuser.github.io/pymdown-extensions/
+markdown_extensions:
+  - admonition
+  - codehilite:
+      linenums: true
+      guess_lang: false
+  - toc:
+      permalink: Link
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.inlinehilite:
+      style_plain_text: true
+  - pymdownx.superfences
