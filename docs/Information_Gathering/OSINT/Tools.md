@@ -1,2 +1,0 @@
-## Tools useful for OSINT
-
