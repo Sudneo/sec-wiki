@@ -1,6 +1,7 @@
 site_name: Security Wiki
 site_description: 'Personal Wiki for everything concerning security'
 site_author: 'Sudneo'
+site_url: 'https://secwiki.coolbyte.eu'
 
 # Repository
 repo_name: 'sudneo/sec-wiki'
@@ -14,7 +15,7 @@ theme:
   name: material
   language: 'en'
   palette:
-      primary: 'Blue Grey'
+      primary: 'Teal'
       accent: 'Teal'
   font:
       text: 'Open Sans'
