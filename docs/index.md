@@ -16,3 +16,7 @@ penetration testing, exploitation, IT security in general etc.
 
 Every category of the above has a separate section.
 Inside, there are snippets, reasoning and examples related to it.
+
+## Automated reload
+
+This doc is automatically rebuilt at every push in the repo
