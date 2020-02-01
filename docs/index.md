@@ -19,4 +19,5 @@ Inside, there are snippets, reasoning and examples related to it.
 
 ## Automated reload
 
-This doc is automatically rebuilt at every push in the repo
+This doc is automatically rebuilt at every push in the reposiory. If you want to add a change, just
+make a PR.
