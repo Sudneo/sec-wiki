@@ -24,8 +24,8 @@ theme:
     icon: 'label'
   search:
     tokenizer: '[\s\-\.\_]+'
-  feature:
-    tabs: true
+  #feature:
+  #  tabs: true
 
 # Customization
 extra:
