@@ -11,14 +11,12 @@ the default allocations.
 #### TCP SYN Scan
 
 Send a TCP SYN packet to destination. Oper ports will respond with SYN/ACK, closed ports will respond
-    [[with]] RST flag. No response will be considered from the scanner as if the port is firewalled.
+    with RST flag. No response will be considered from the scanner as if the port is firewalled.
 
 The scanner never finishes the connection establishment by sending an ACK message back (hence,
 **half-open** scan), but instead aborts the connection with a RST packet.
 
-```
 SYN --> SYN/ACK or RST --> RST
-```
 
 #### TCP Connect Scan
 
@@ -26,9 +24,7 @@ Perform the full three-ways handshake with the destination, using the underlying
 This means that the scanner, in general, will have less flexibility in what to put inside the
 packets, since it is not assembling them directly (as it was for the TCP SYN scan).
 
-```
 SYN --> SYN/ACK or RST --> ACK --> RST
-```
 
 #### UDP Scan
 
