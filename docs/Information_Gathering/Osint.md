@@ -4,7 +4,7 @@
 
 * Dradis
 * Faraday
-* Magitree
+* Magictree
 
 ## Search Engines
 

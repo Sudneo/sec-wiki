@@ -77,8 +77,8 @@ dig axfr @domain.com domain.com [+nocookie]
 
 ### DNS data mining
 
-* DNSDumpster
-* DNSEnum
+* [DNSDumpster](https://dnsdumpster.com)
+* [DNSEnum](https://github.com/fwaeytens/dnsenum)
 
 ### Bing
 
