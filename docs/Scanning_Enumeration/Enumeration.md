@@ -100,5 +100,86 @@ rpcclient $> CMD
 There are many commands we can execute once the RPC connection is established.
 
 
+### SNMP
 
+Simple Network Management Protocol, used to exchange information between network devices. The
+protocol has the concept of manager and agents, where the agents either wait for commands from the
+manager or send traps to it.
 
+There are 4 basic operations:
+
+* Read. Used to monitor devices.
+* Write. Used to configure devices.
+* Trap. Used to trap events from the device and report to the monitoring system.
+* Traversal Operations. Used to explore the options that a certain device supports.
+
+#### Working Mechanism
+
+SNMP uses 2 ports:
+
+* UDP 161 for general messages
+* UDP 162 for traps
+
+As there are agents and manager, the protocol has 4 verbs that the manager can send to the agents:
+`GET`, `GetNext`, `Set` and `Trap`.
+To perform authentication, SNMP uses the so called **community string**. This can be either private,
+allowing for modifications, or public, allowing only read operations.
+
+There is a collection of definitions for the properties of specific devices, which is called MIB
+(Management Information Base), and it is organized as a tree. Each node of the tree has some ID and
+a name. The complete sequence of IDs from the top of the tree to the leaf, is called OID (Object
+Identifier), and it is of the form `1.3.6.1.X.Y[.J]+`. 
+
+#### Attacks Against SNMP
+
+##### Obtaining Community String
+
+SNMPv1 and SNMPv2 are cleartext protocols, so the most straightforward way to obtain the Community
+String is to just sniff the traffic.
+Bruteforcing the key is an option that is always available, even with SNMPv3 (which is encrypted),
+although it is a noisy technique and it might be blocked by IDSs.
+
+#### Tools of the Trade
+
+##### snmpwalk
+
+`snmpwalk` is used to gather information about devices in a tree. It used `GetNext` to gather
+information about as many devices as it can. 
+
+```bash
+snmpwalk -v <SNMP_Version> <Target_IP> -c <Community_String>
+# snmpwalk -v 2c 10.10.100.1 -c public
+```
+
+##### snmpset
+
+`snmpset` is used to change/set configuration or information on an entity.
+
+```bash
+# s is for STRING
+snmpset -v 2c -c public 10.10.100.1 system.sysContact.0 s admin@test.com
+```
+
+##### Nmap
+
+Some SNMP related NSE scripts are:
+
+* snmp-brute
+* snmp-info
+* snmp-interfaces
+* snmp-netstat
+* snmp-processes
+* snmp-sysdescr
+* snmp-win32-services
+
+```bash
+# Enumerate services on the machine
+nmap -sU -p 161 --script=snmp-win32-services 10.10.100.1
+# Bruteforce the community string
+# Default wordlist /usr/share/nmap/nselib/data/snmpcommunities.lst
+nmap -sU -p 161 --script=snmp-brute 10.10.100.1 [--script-args snmp-brute.communitiesdb=<wordlist>]
+```
+
+!!! note
+    [Seclists](https://github.com/danielmiessler/SecLists) has a list with common SNMP Community
+    Strings.
