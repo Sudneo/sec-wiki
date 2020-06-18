@@ -32,7 +32,6 @@ Standard tools for DNS requests are:
 
 ### nslookup
 
-
 ```bash
 # Standard DNS query
 nslookup domain.com
@@ -73,12 +72,21 @@ dig domain.com NS
 dig axfr @domain.com domain.com [+nocookie]
 ```
 
+The +nocookie seems to be useful for a bug in Microsoft DNS server, as described [here](https://kevinlocke.name/bits/2017/01/20/formerr-from-microsoft-dns-server-for-dig/).
+
+
 ## Further Information
 
 ### DNS data mining
 
 * [DNSDumpster](https://dnsdumpster.com)
 * [DNSEnum](https://github.com/fwaeytens/dnsenum)
+
+For example, to do DNS enumeration with dnsenum:
+
+```
+dnsenum --dnsserver DNS_IP DOMAIN
+```
 
 ### Bing
 

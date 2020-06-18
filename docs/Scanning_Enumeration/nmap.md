@@ -18,17 +18,17 @@ Ping sweep
 nmap -sn 10.0.0.0/24
 ```
 
-TCP/UDP/SCTP discovery
+TCP/UDP/SCTP discovery (Scan without ping)
 
 ```
 # TCP SYN Discovery
-nmap -PS <IP range>
+nmap -PS<Ports> <IP range>
 # TCP ACK Discovery
-nmap -PA<IP range>
+nmap -PA<Ports> <IP range>
 # UDP Discovery
-nmap -PU<IP range>
+nmap -PU<Ports> <IP range>
 # SCTP Discovery
-nmap -PY <IP range>
+nmap -PY<Ports>  <IP range>
 ```
 
 ## Scanning 
